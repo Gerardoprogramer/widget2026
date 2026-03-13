@@ -13,11 +13,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const project = getProjectBySlug(slug)
-  
+
   if (!project) {
     return { title: "Proyecto no encontrado" }
   }
-  
+
   return {
     title: `${project.title} | Portfolio`,
     description: project.description,
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const project = getProjectBySlug(slug)
-  
+
   if (!project) {
     notFound()
   }
@@ -44,9 +44,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           priority
         />
         <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-background" />
-        
+
         {/* Back button */}
-        <Link 
+        <Link
           href="/"
           className="absolute top-4 left-4 md:top-8 md:left-8 z-10 flex items-center gap-2 px-4 py-2 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-black/40 transition-colors text-sm"
         >
@@ -64,10 +64,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-2">{project.title}</h1>
               <p className="text-muted-foreground text-sm md:text-base">{project.description}</p>
             </div>
-            
+
             <div className="flex flex-wrap gap-2">
-              {project.demoUrl && (
-                <a 
+              {project.demoUrl ? (
+                <a
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -76,6 +76,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <ExternalLink className="w-4 h-4" />
                   Ver Demo
                 </a>
+              ) : (
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-500/10 text-yellow-600 text-sm font-medium border border-yellow-500/30">
+                  <AlertTriangle className="w-4 h-4" />
+                  En desarrollo
+                </div>
               )}
             </div>
           </div>
@@ -95,7 +100,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           {/* GitHub links */}
           <div className="flex flex-wrap gap-3">
             {project.frontendUrl && (
-              <a 
+              <a
                 href={project.frontendUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -106,7 +111,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </a>
             )}
             {project.backendUrl && (
-              <a 
+              <a
                 href={project.backendUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -130,7 +135,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <h2 className="text-lg md:text-xl font-semibold text-foreground mb-4">Tecnologías</h2>
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <span 
+              <span
                 key={tag}
                 className="px-3 py-1.5 text-sm rounded-lg bg-secondary text-foreground border border-border"
               >
@@ -174,7 +179,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         {/* Footer */}
         <div className="text-center pb-12">
-          <Link 
+          <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >

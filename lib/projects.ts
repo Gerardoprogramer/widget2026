@@ -39,8 +39,8 @@ export const projects: Project[] = [
     tags: ["Next.js", "Java", "Spring Boot", "Spring Security", "PostgreSQL", "Stripe"],
     image: "/projects/library-hero.jpg",
     glowColor: "rgba(240, 147, 251, 0.2)",
-    demoUrl: "https://demo.com",
-    frontendUrl: "https://github.com/Gerardoprogramer/library-frontend",
+    demoUrl: "",
+    frontendUrl: "https://github.com/Gerardoprogramer/library-management-system-next",
     backendUrl: "https://github.com/Gerardoprogramer/Library-Management-System",
     features: [
       "Autenticación stateless con JWT y Spring Security",
@@ -69,9 +69,9 @@ export const projects: Project[] = [
     tags: ["Spring Boot", "PostgreSQL", "React", "Docker", "Redis"],
     image: "/projects/erp.png",
     glowColor: "rgba(79, 172, 254, 0.2)",
-    demoUrl: "https://demo.com",
-    frontendUrl: "https://github.com/tuusuario/minisuper-frontend",
-    backendUrl: "https://github.com/tuusuario/minisuper-backend",
+    demoUrl: "",
+    frontendUrl: "",
+    backendUrl: "",
     features: [
       "Sistema POS con soporte para múltiples cajas registradoras",
       "Escaneo de códigos de barras para detección automática de productos",

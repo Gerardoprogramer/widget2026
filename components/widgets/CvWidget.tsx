@@ -7,8 +7,8 @@ export function CvWidget() {
   return (
     <WidgetWrapper className="h-full" glowColor="rgba(200, 150, 255, 0.15)">
       <a 
-        href="/cv.pdf"
-        download="Tu_Nombre_CV.pdf"
+        href="/Gerardo_FullStack_CV.pdf"
+        download="Gerardo_Martinez_Monge_CV.pdf"
         className="p-4 md:p-6 h-full flex flex-col justify-between bg-linear-to-br from-purple-500/10 to-pink-500/5 group"
       >
         <div className="flex items-center justify-between">
