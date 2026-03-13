@@ -26,29 +26,35 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Gerardo Martinez Monge' }],
   creator: 'Gerardo Martinez Monge',
-  metadataBase: new URL('https://gerardo-martinez.dev'),
+  metadataBase: new URL('https://gerardodev.vercel.app'),
 
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    url: 'https://gerardo-martinez.dev',
+    url: 'https://gerardodev.vercel.app',
     siteName: 'Gerardo Martinez Monge',
     title: 'Gerardo Martinez Monge | Full Stack Developer',
     description:
       'Full Stack Developer especializado en React, Next.js, Java Spring Boot y Python. Desarrollo de aplicaciones web modernas y APIs escalables.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: 'https://gerardodev.vercel.app/widget_Image.png',
         width: 1200,
         height: 630,
         alt: 'Gerardo Martinez Monge - Full Stack Developer',
       },
     ],
   },
-
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gerardo Martinez Monge | Full Stack Developer',
+    description:
+      'Full Stack Developer especializado en React, Next.js, Java Spring Boot y Python.',
+    images: ['https://gerardodev.vercel.app/widget_Image.png'],
+  },
   icons: {
-    icon: '/favicon.svg',
-    apple: '/apple-icon.png',
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
 }
 
