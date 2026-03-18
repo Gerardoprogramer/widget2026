@@ -39,7 +39,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "Java", "Spring Boot", "Spring Security", "PostgreSQL", "Stripe"],
     image: "/projects/library-hero.jpg",
     glowColor: "rgba(240, 147, 251, 0.2)",
-    demoUrl: "",
+    demoUrl: "https://obsidian-delta-kohl.vercel.app",
     frontendUrl: "https://github.com/Gerardoprogramer/library-management-system-next",
     backendUrl: "https://github.com/Gerardoprogramer/Library-Management-System",
     features: [
@@ -62,36 +62,42 @@ export const projects: Project[] = [
     role: "Full Stack Developer"
   },
   {
-    slug: "retail-management-system",
-    title: "MiniSuper Retail Management Platform",
-    description: "Plataforma enterprise para gestión de retail con POS, inventario inteligente, análisis de ventas y predicción de compras.",
-    longDescription: "MiniSuper Retail Management Platform es un sistema enterprise diseñado para gestionar operaciones completas de retail. La plataforma incluye un sistema POS con soporte para múltiples cajas registradoras, control de inventario en tiempo real, gestión de proveedores y órdenes de compra, análisis avanzado de ventas y un motor de predicción de demanda. El sistema está diseñado con arquitectura API-First y preparado para escalar a múltiples sucursales. Incluye módulos de control financiero de caja, historial de precios, gestión de pérdidas y análisis de comportamiento de ventas para optimizar decisiones de negocio.",
-    tags: ["Spring Boot", "PostgreSQL", "React", "Docker", "Redis"],
-    image: "/projects/erp.png",
-    glowColor: "rgba(79, 172, 254, 0.2)",
-    demoUrl: "",
-    frontendUrl: "",
-    backendUrl: "",
-    features: [
-      "Sistema POS con soporte para múltiples cajas registradoras",
-      "Escaneo de códigos de barras para detección automática de productos",
-      "Control de inventario en tiempo real con historial de movimientos",
-      "Gestión de proveedores y órdenes de compra",
-      "Historial de precios y análisis de variaciones",
+    "slug": "retail-management-system",
+    "title": "Retail Management Platform (MiniSuper)",
+    "description": "Sistema completo de gestión para retail con POS, control de inventario en tiempo real, gestión de proveedores y analítica de ventas.",
+    "longDescription": "Retail Management Platform es una aplicación full-stack diseñada para digitalizar la operación completa de un mini supermercado o tienda retail. El sistema integra un punto de venta (POS), control de inventario en tiempo real, gestión de proveedores y órdenes de compra, así como análisis de ventas para apoyar la toma de decisiones. La arquitectura está diseñada como un monolito modular con principios de Domain-Driven Design, permitiendo escalar funcionalidades y soportar múltiples sucursales. Incluye herramientas para auditoría de caja, historial de precios, seguimiento de pérdidas y análisis de comportamiento de ventas.",
+    "tags": [
+      "Spring Boot",
+      "PostgreSQL",
+      "React",
+      "Docker",
+      "Redis"
+    ],
+    "image": "/projects/erp.png",
+    "glowColor": "rgba(79, 172, 254, 0.2)",
+    "demoUrl": "",
+    "frontendUrl": "",
+    "backendUrl": "",
+    "features": [
+      "Sistema POS para registro de ventas en tiempo real",
+      "Escaneo de códigos de barras para identificación rápida de productos",
+      "Control de inventario con historial completo de movimientos",
+      "Gestión de proveedores y generación de órdenes de compra",
+      "Historial de precios y seguimiento de variaciones",
       "Control financiero de caja con auditoría de apertura y cierre",
-      "Análisis de ventas por día de la semana y últimos 30 días",
-      "Motor de predicción de demanda para recomendaciones de compra",
-      "Registro y gestión de pérdidas, daños o productos expirados",
-      "Reportes empresariales para análisis de negocio"
+      "Análisis de ventas por día, semana y últimos 30 días",
+      "Registro de pérdidas, daños o productos expirados",
+      "Panel de reportes para análisis de desempeño del negocio",
+      "Arquitectura preparada para múltiples sucursales"
     ],
-    challenges: [
-      "Diseñar un modelo de datos complejo capaz de soportar POS, inventario, proveedores y finanzas",
-      "Implementar predicción de demanda basada en múltiples factores como ventas históricas y estacionalidad",
-      "Mantener consistencia de inventario en tiempo real durante múltiples transacciones POS",
-      "Construir una arquitectura preparada para expansión multi-sucursal"
+    "challenges": [
+      "Diseñar un modelo de dominio capaz de manejar ventas, inventario, proveedores y finanzas de forma consistente",
+      "Mantener sincronización de inventario en tiempo real durante múltiples transacciones POS",
+      "Construir una arquitectura modular escalable para futuras funcionalidades",
+      "Optimizar consultas y reportes analíticos sobre grandes volúmenes de ventas"
     ],
-    year: "2026",
-    role: "Full Stack Developer"
+    "year": "2026",
+    "role": "Full Stack Developer"
   },
 ]
 
