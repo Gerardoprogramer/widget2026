@@ -8,7 +8,7 @@ export function LinkedinWidget() {
     <WidgetWrapper 
       className="h-full" 
       glowColor="rgba(0, 119, 181, 0.2)"
-      href="https://www.linkedin.com/in/gerardomartinezmonge/"
+      href="https://www.linkedin.com/in/gerardo-martinez-dev/"
     >
       <div className="p-4 md:p-6 h-full flex flex-col justify-between bg-linear-to-br from-[#0077B5]/10 to-transparent">
         <div className="flex items-center justify-between">
