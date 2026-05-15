@@ -14,6 +14,7 @@ import { StatsWidget } from "@/components/widgets/StatsWidget"
 import { CvWidget } from "@/components/widgets/CvWidget"
 import { ThemeWidget } from "@/components/widgets/ThemeWidget"
 import { projects } from "@/lib/projects"
+import { LanguageWidget } from "@/components/widgets/LanguageWidget"
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -33,8 +34,8 @@ export default function Home() {
         const rect = card.getBoundingClientRect()
         const x = ((e.clientX - rect.left) / rect.width) * 100
         const y = ((e.clientY - rect.top) / rect.height) * 100
-        ;(card as HTMLElement).style.setProperty("--mouse-x", `${x}%`)
-        ;(card as HTMLElement).style.setProperty("--mouse-y", `${y}%`)
+          ; (card as HTMLElement).style.setProperty("--mouse-x", `${x}%`)
+          ; (card as HTMLElement).style.setProperty("--mouse-y", `${y}%`)
       }
     }
 
@@ -43,7 +44,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main 
+    <main
       ref={containerRef}
       className="min-h-screen bg-background p-4 md:p-8 lg:p-12"
     >
@@ -62,22 +63,22 @@ export default function Home() {
           <div className={`col-span-2 row-span-2 md:row-span-2 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
             <ProfileWidget />
           </div>
-          
+
           {/* Reloj */}
           <div className={`col-span-1 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '50ms' }}>
             <ClockWidget />
           </div>
-          
+
           {/* GitHub */}
           <div className={`col-span-1 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '100ms' }}>
             <GithubWidget />
           </div>
-          
+
           {/* LinkedIn */}
           <div className={`col-span-1 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '150ms' }}>
             <LinkedinWidget />
           </div>
-          
+
           {/* WhatsApp */}
           <div className={`col-span-1 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '200ms' }}>
             <WhatsappWidget />
@@ -87,7 +88,7 @@ export default function Home() {
           <div className={`col-span-2 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '250ms' }}>
             <EmailWidget />
           </div>
-          
+
           {/* Tech Stack - Ancho */}
           <div className={`col-span-2 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '300ms' }}>
             <TechStackWidget />
@@ -97,17 +98,20 @@ export default function Home() {
           <div className={`col-span-1 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '350ms' }}>
             <LocationWidget />
           </div>
-          
+
           {/* CV Download */}
           <div className={`col-span-1 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '400ms' }}>
             <CvWidget />
           </div>
-          
+
           {/* Theme Toggle */}
           <div className={`col-span-1 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '450ms' }}>
             <ThemeWidget />
           </div>
-          
+          <div className={`col-span-1 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '450ms' }}>
+            <LanguageWidget />
+          </div>
+
           {/* Stats - Ancho */}
           <div className={`col-span-2 md:col-span-2 row-span-1 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '500ms' }}>
             <StatsWidget />
@@ -120,7 +124,7 @@ export default function Home() {
               Proyectos Destacados
             </h2>
           </div>
-          
+
           {projects.map((project, index) => (
             <ProjectWidget
               key={project.title}
