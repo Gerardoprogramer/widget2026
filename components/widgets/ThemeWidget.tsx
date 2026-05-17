@@ -1,12 +1,12 @@
-"use client"
-
 import { useEffect, useState } from "react"
 import { Moon, Sun } from "lucide-react"
 import { WidgetWrapper } from "@/components/widgets/WidgetWrapper"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export function ThemeWidget() {
-  const [isDark, setIsDark] = useState(true)
-  const [mounted, setMounted] = useState(false)
+  const [isDark, setIsDark] = useState(true);
+  const [mounted, setMounted] = useState(false);
+  const t = useTranslation();
 
   useEffect(() => {
     setMounted(true)
@@ -20,7 +20,7 @@ export function ThemeWidget() {
   const toggleTheme = () => {
     const newIsDark = !isDark
     setIsDark(newIsDark)
-    
+
     if (newIsDark) {
       document.documentElement.classList.remove("light")
       localStorage.setItem("theme", "dark")
@@ -46,7 +46,7 @@ export function ThemeWidget() {
 
   return (
     <WidgetWrapper className="h-full" glowColor={isDark ? "rgba(100, 150, 255, 0.15)" : "rgba(255, 200, 100, 0.15)"}>
-      <button 
+      <button
         type="button"
         onClick={toggleTheme}
         className="p-4 md:p-6 h-full w-full flex flex-col justify-between text-left"
@@ -57,15 +57,15 @@ export function ThemeWidget() {
           ) : (
             <Sun className="w-3.5 h-3.5 md:w-4 md:h-4 text-yellow-500" />
           )}
-          <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest">Tema</p>
+          <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest">{t("theme")}</p>
         </div>
-        
+
         <div className="flex items-center gap-3">
-          <div 
+          <div
             className={`
               w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300
-              ${isDark 
-                ? 'bg-linear-to-br from-blue-500/20 to-indigo-500/10 border border-blue-500/30' 
+              ${isDark
+                ? 'bg-linear-to-br from-blue-500/20 to-indigo-500/10 border border-blue-500/30'
                 : 'bg-linear-to-br from-yellow-400/20 to-orange-400/10 border border-yellow-400/30'
               }
             `}
@@ -77,7 +77,7 @@ export function ThemeWidget() {
             )}
           </div>
           <span className="text-xs md:text-sm font-medium text-foreground">
-            {isDark ? "Oscuro" : "Claro"}
+            {isDark ? t("dark") : t("light")}
           </span>
         </div>
       </button>

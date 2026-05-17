@@ -1,12 +1,12 @@
-"use client"
-
 import { useState } from "react"
 import { WidgetWrapper } from "@/components/widgets/WidgetWrapper"
 import { Mail, Copy, Check } from "lucide-react"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export function EmailWidget() {
     const [copied, setCopied] = useState(false)
     const email = "gerardoalonso.martinezmonge@gmail.com"
+    const t = useTranslation();
 
     const handleCopy = async () => {
         try {
@@ -48,12 +48,12 @@ export function EmailWidget() {
                     {copied ? (
                         <>
                             <Check className="w-4 h-4 text-green-500" />
-                            <span className="text-xs text-green-500">Copiado</span>
+                            <span className="text-xs text-green-500">{t("copied")}</span>
                         </>
                     ) : (
                         <>
                             <Copy className="w-4 h-4" />
-                            <span className="text-xs">Copiar</span>
+                            <span className="text-xs">{t("copy")}</span>
                         </>
                     )}
                 </div>

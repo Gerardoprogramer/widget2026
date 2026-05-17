@@ -1,9 +1,11 @@
-"use client"
-
 import { WidgetWrapper } from "@/components/widgets/WidgetWrapper"
+import { useTranslation } from "@/hooks/useTranslation";
 import { MapPin } from "lucide-react"
 
 export function LocationWidget() {
+
+  const t = useTranslation();
+
   return (
     <WidgetWrapper className="h-full" glowColor="rgba(255, 200, 100, 0.15)">
       <div className="p-4 md:p-6 h-full flex flex-col justify-between relative overflow-hidden">
@@ -22,7 +24,7 @@ export function LocationWidget() {
         
         <div className="flex items-center gap-1.5 md:gap-2 relative z-10">
           <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
-          <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest">Ubicación</p>
+          <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest">{t("location")}</p>
         </div>
         
         <div className="relative z-10">

@@ -1,106 +1,557 @@
-import type { Project } from "./interfaces"
+export interface ProjectMetric {
+  label: string
+  value: string
+  description?: string
+}
 
-export const projects: Project[] = [
+export interface ProjectFeature {
+  title: string
+  description: string
+}
+
+export interface ProjectChallenge {
+  title: string
+  problem: string
+  solution: string
+}
+
+export interface ProjectArchitecture {
+  title: string
+  description: string
+}
+
+export interface Project {
+  slug: string
+  title: string
+  tagline: string
+  description: string
+  image: string
+  gallery?: string[]
+  glowColor: string
+
+  // Meta
+  year: string
+  duration: string
+  role: string
+  type: string
+  status: "live" | "development" | "archived"
+
+  // Links
+  demoUrl?: string
+  frontendUrl?: string
+  backendUrl?: string
+
+  // Story
+  problem: string
+  solution: string
+
+  // Quick metrics
+  metrics: ProjectMetric[]
+
+  // Tech grouped
+  techStack: {
+    frontend?: string[]
+    backend?: string[]
+    database?: string[]
+    devops?: string[]
+    other?: string[]
+  }
+
+  // Tags (for cards)
+  tags: string[]
+
+  // Detailed sections
+  architecture: ProjectArchitecture[]
+  features: ProjectFeature[]
+  challenges: ProjectChallenge[]
+  results: string[]
+  lessons: string[]
+}
+
+export const projects = (t: any): Project[] => [
   {
-    slug: "trendora-ecommerce",
-    title: "Trendora E-Commerce Platform",
-    description: "Plataforma de e-commerce completa para venta de ropa con panel de administración, autenticación por roles y arquitectura modular.",
-    longDescription: "Trendora es una plataforma de comercio electrónico full-stack desarrollada con React y NestJS. Incluye autenticación basada en JWT con control de roles, catálogo de productos con paginación y filtros, panel administrativo para gestión de productos, subida de archivos, y arquitectura modular escalable. El frontend utiliza TanStack Query para manejo eficiente de datos, Zustand para estado global y Tailwind + shadcn/ui para una interfaz moderna. El backend está construido con NestJS siguiendo buenas prácticas de arquitectura limpia, usando DTOs, Guards, Decorators personalizados y PostgreSQL como base de datos.",
-    tags: ["React", "TypeScript", "NestJS", "PostgreSQL", "TypeORM", "Tailwind"],
-    image: "/projects/trendo.png",
+    slug: t("obsidianLibrarySlug"),
+    title: t("obsidianLibraryTitle"),
+    tagline: t("obsidianLibraryTagline"),
+    description: t("obsidianLibraryDescription"),
+    image: "/projects/ObsidianLib.png",
     glowColor: "rgba(102, 126, 234, 0.2)",
-    demoUrl: "https://trendoragm.netlify.app/",
-    frontendUrl: "https://github.com/Gerardoprogramer/Trendora",
-    backendUrl: "https://github.com/Gerardoprogramer/Trendora-Backend",
-    features: [
-      "Autenticación con JWT y sistema de roles (USER, ADMIN, SUPER_ADMIN)",
-      "Catálogo de productos con paginación y filtros",
-      "Panel de administración para gestión de productos",
-      "Subida y manejo de imágenes de productos",
-      "Arquitectura modular escalable con NestJS",
-      "Estado global con Zustand y data fetching con TanStack Query",
-      "Rutas protegidas y control de acceso basado en roles",
-      "Documentación automática de API con Swagger"
-    ],
-    challenges: [
-      "Diseñar una arquitectura modular escalable separando dominios en frontend y backend",
-      "Implementar autenticación segura con JWT, Guards y decorators personalizados",
-      "Optimizar manejo de estado y cacheo de datos con TanStack Query",
-      "Mantener sincronización entre filtros de UI y parámetros de URL para navegación reproducible"
-    ],
-    year: "2025",
-    role: "Full Stack Developer"
-  },
-  {
-    slug: "library-management-system",
-    title: "Library Management System",
-    description: "Sistema de gestión de biblioteca con préstamos, reservas, pagos con Stripe y control de roles.",
-    longDescription: "Library Management System es una plataforma full-stack desarrollada con Spring Boot y Next.js que permite administrar bibliotecas modernas con control de préstamos, reservas, pagos y usuarios. El backend implementa autenticación stateless con JWT utilizando Spring Security y una arquitectura por capas con Spring Data JPA. Incluye integración con Stripe para pagos de suscripciones y multas, notificaciones por correo con plantillas Thymeleaf y tareas programadas para automatización. El frontend está siendo desarrollado con Next.js utilizando TanStack Query para manejo de datos, Axios para comunicación con la API, Zod para validación y shadcn/ui para la interfaz. El sistema separa claramente permisos entre usuarios y administradores y está diseñado siguiendo buenas prácticas de arquitectura y seguridad.",
-    tags: ["Next.js", "Java", "Spring Boot", "Spring Security", "PostgreSQL", "Stripe"],
-    image: "/projects/library-hero.jpg",
-    glowColor: "rgba(240, 147, 251, 0.2)",
+
+    year: "2026",
+    duration: t("obsidianLibraryDuration"),
+    role: t("obsidianLibraryRole"),
+    type: t("obsidianLibraryType"),
+    status: "live",
+
     demoUrl: "https://obsidian-delta-kohl.vercel.app",
     frontendUrl: "https://github.com/Gerardoprogramer/library-management-system-next",
     backendUrl: "https://github.com/Gerardoprogramer/Library-Management-System",
+
+    problem: t("obsidianLibraryProblem"),
+    solution: t("obsidianLibrarySolution"),
+
+    metrics: [
+      { label: t("obsidianLibraryMetricsEndpointsLabel"), value: "69", description: t("obsidianLibraryMetricsEndpointsDescription") },
+      { label: t("obsidianLibraryMetricsAuthLabel"), value: "JWT", description: t("obsidianLibraryMetricsAuthDescription") },
+      { label: t("obsidianLibraryMetricsPaymentsLabel"), value: "Stripe", description: t("obsidianLibraryMetricsPaymentsDescription") },
+      { label: t("obsidianLibraryMetricsPaginationLabel"), value: "PageResponse", description: t("obsidianLibraryMetricsPaginationDescription") },
+    ],
+
+    tags: ["Next.js", "Stripe", "PostgreSQL"],
+
+    techStack: {
+      frontend: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Zustand",
+        "TanStack Query",
+        "Zod",
+      ],
+
+      backend: [
+        "Spring Boot",
+        "Java",
+        "Spring Security",
+        "JWT",
+        "Refresh Token",
+        "Thymeleaf",
+      ],
+
+      database: [
+        "PostgreSQL",
+      ],
+
+      devops: [
+        "Docker",
+        "Vercel",
+      ],
+
+      other: [
+        "Stripe",
+        "Webhook",
+        "HTTP-only Cookies",
+        "REST API",
+      ]
+    },
+
+    architecture: [
+      {
+        title: t("obsidianLibraryArchitectureLayeredTitle"),
+        description: t("obsidianLibraryArchitectureLayeredDescription"),
+      },
+      {
+        title: t("obsidianLibraryArchitectureSecurityTitle"),
+        description: t("obsidianLibraryArchitectureSecurityDescription"),
+      },
+      {
+        title: t("obsidianLibraryArchitectureCommunicationTitle"),
+        description: t("obsidianLibraryArchitectureCommunicationDescription"),
+      },
+    ],
+
     features: [
-      "Autenticación stateless con JWT y Spring Security",
-      "Control de acceso basado en roles (USER / ADMIN)",
-      "Gestión completa de libros con validación de ISBN",
-      "Sistema de préstamos, reservas y seguimiento de estado",
-      "Integración con Stripe para pagos de multas y suscripciones",
-      "Wishlist personal para usuarios",
-      "Notificaciones por correo con plantillas Thymeleaf",
-      "Arquitectura modular y segura para aplicaciones empresariales"
+      { title: t("obsidianLibraryFeatureCatalogTitle"), description: t("obsidianLibraryFeatureCatalogDescription") },
+      { title: t("obsidianLibraryFeatureLoansTitle"), description: t("obsidianLibraryFeatureLoansDescription") },
+      { title: t("obsidianLibraryFeatureSubscriptionsTitle"), description: t("obsidianLibraryFeatureSubscriptionsDescription") },
+      { title: t("obsidianLibraryFeaturePaymentsTitle"), description: t("obsidianLibraryFeaturePaymentsDescription") },
+      { title: t("obsidianLibraryFeatureWishlistTitle"), description: t("obsidianLibraryFeatureWishlistDescription") },
+      { title: t("obsidianLibraryFeatureReviewsTitle"), description: t("obsidianLibraryFeatureReviewsDescription") },
     ],
+
     challenges: [
-      "Diseñar un modelo de dominio consistente para préstamos, reservas y multas",
-      "Implementar integración segura con Stripe usando webhooks",
-      "Construir autenticación JWT completamente stateless en Spring Security",
-      "Diseñar comunicación eficiente entre frontend Next.js y backend REST"
+      {
+        title: t("obsidianLibraryChallengePaymentsTitle"),
+        problem: t("obsidianLibraryChallengePaymentsProblem"),
+        solution: t("obsidianLibraryChallengePaymentsSolution"),
+      },
+      {
+        title: t("obsidianLibraryChallengeAuthTitle"),
+        problem: t("obsidianLibraryChallengeAuthProblem"),
+        solution: t("obsidianLibraryChallengeAuthSolution"),
+      },
+      {
+        title: t("obsidianLibraryChallengePaginationTitle"),
+        problem: t("obsidianLibraryChallengePaginationProblem"),
+        solution: t("obsidianLibraryChallengePaginationSolution"),
+      },
     ],
-    year: "2026",
-    role: "Full Stack Developer"
+
+    results: [
+      t("obsidianLibraryResult1"),
+      t("obsidianLibraryResult2"),
+      t("obsidianLibraryResult3"),
+      t("obsidianLibraryResult4"),
+    ],
+
+    lessons: [
+      t("obsidianLibraryLesson1"),
+      t("obsidianLibraryLesson2"),
+      t("obsidianLibraryLesson3"),
+      t("obsidianLibraryLesson4"),
+    ],
   },
   {
-    "slug": "retail-management-system",
-    "title": "Retail Management Platform (MiniSuper)",
-    "description": "Sistema completo de gestión para retail con POS, control de inventario en tiempo real, gestión de proveedores y analítica de ventas.",
-    "longDescription": "Retail Management Platform es una aplicación full-stack diseñada para digitalizar la operación completa de un mini supermercado o tienda retail. El sistema integra un punto de venta (POS), control de inventario en tiempo real, gestión de proveedores y órdenes de compra, así como análisis de ventas para apoyar la toma de decisiones. La arquitectura está diseñada como un monolito modular con principios de Domain-Driven Design, permitiendo escalar funcionalidades y soportar múltiples sucursales. Incluye herramientas para auditoría de caja, historial de precios, seguimiento de pérdidas y análisis de comportamiento de ventas.",
-    "tags": [
+    slug: t("laCentralSlug"),
+    title: t("laCentralTitle"),
+    tagline: t("laCentralTagline"),
+    description: t("laCentralDescription"),
+    image: "/projects/ERPcentral.png",
+    glowColor: "rgba(16, 185, 129, 0.2)",
+
+    year: "2026",
+    duration: t("laCentralDuration"),
+    role: t("laCentralRole"),
+    type: t("laCentralType"),
+    status: "live",
+
+    demoUrl: "",
+    frontendUrl: "",
+    backendUrl: "",
+
+    problem: t("laCentralProblem"),
+    solution: t("laCentralSolution"),
+
+    metrics: [
+      {
+        label: t("laCentralMetricsModulesLabel"),
+        value: "6",
+        description: t("laCentralMetricsModulesDescription"),
+      },
+
+      {
+        label: t("laCentralMetricsEndpointsLabel"),
+        value: "31",
+        description: t("laCentralMetricsEndpointsDescription"),
+      },
+
+      {
+        label: t("laCentralMetricsArchitectureLabel"),
+        value: "DDD",
+        description: t("laCentralMetricsArchitectureDescription"),
+      },
+
+      {
+        label: t("laCentralMetricsRealtimeLabel"),
+        value: "WebSocket",
+        description: t("laCentralMetricsRealtimeDescription"),
+      },
+    ],
+
+    tags: [
+      "Next.js",
       "Spring Boot",
+      "DDD",
+      "CQRS",
+    ],
+
+    techStack: {
+      frontend: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Zustand",
+        "TanStack Query",
+        "Zod",
+        "Axios",
+        "STOMP.js",
+      ],
+
+      backend: [
+        "Spring Boot",
+        "Java",
+        "Hexagonal Architecture",
+        "DDD",
+        "CQRS",
+        "JWT",
+        "WebSocket",
+      ],
+
+      database: [
+        "PostgreSQL",
+      ],
+
+      devops: [
+        "Docker",
+        "DigitalOcean",
+        "Private Network",
+      ],
+
+      other: [
+        "Event-Driven Architecture",
+        "HTTP-only Cookies",
+        "REST API",
+        "Real-time Sync",
+      ],
+    },
+
+    architecture: [
+      {
+        title: t("laCentralArchitectureHexagonalTitle"),
+        description: t("laCentralArchitectureHexagonalDescription"),
+      },
+
+      {
+        title: t("laCentralArchitectureRealtimeTitle"),
+        description: t("laCentralArchitectureRealtimeDescription"),
+      },
+
+      {
+        title: t("laCentralArchitectureEventsTitle"),
+        description: t("laCentralArchitectureEventsDescription"),
+      },
+    ],
+
+    features: [
+      {
+        title: t("laCentralFeaturePosTitle"),
+        description: t("laCentralFeaturePosDescription"),
+      },
+
+      {
+        title: t("laCentralFeatureInventoryTitle"),
+        description: t("laCentralFeatureInventoryDescription"),
+      },
+
+      {
+        title: t("laCentralFeatureAnalyticsTitle"),
+        description: t("laCentralFeatureAnalyticsDescription"),
+      },
+
+      {
+        title: t("laCentralFeatureEmployeesTitle"),
+        description: t("laCentralFeatureEmployeesDescription"),
+      },
+
+      {
+        title: t("laCentralFeatureForecastTitle"),
+        description: t("laCentralFeatureForecastDescription"),
+      },
+
+      {
+        title: t("laCentralFeatureSuggestionsTitle"),
+        description: t("laCentralFeatureSuggestionsDescription"),
+      },
+    ],
+
+    challenges: [
+      {
+        title: t("laCentralChallengeRealtimeTitle"),
+        problem: t("laCentralChallengeRealtimeProblem"),
+        solution: t("laCentralChallengeRealtimeSolution"),
+      },
+
+      {
+        title: t("laCentralChallengeForecastTitle"),
+        problem: t("laCentralChallengeForecastProblem"),
+        solution: t("laCentralChallengeForecastSolution"),
+      },
+
+      {
+        title: t("laCentralChallengeArchitectureTitle"),
+        problem: t("laCentralChallengeArchitectureProblem"),
+        solution: t("laCentralChallengeArchitectureSolution"),
+      },
+    ],
+
+    results: [
+      t("laCentralResult1"),
+      t("laCentralResult2"),
+      t("laCentralResult3"),
+      t("laCentralResult4"),
+    ],
+
+    lessons: [
+      t("laCentralLesson1"),
+      t("laCentralLesson2"),
+      t("laCentralLesson3"),
+      t("laCentralLesson4"),
+    ],
+  },
+  {
+    slug: t("strataSlug"),
+    title: t("strataTitle"),
+    tagline: t("strataTagline"),
+    description: t("strataDescription"),
+    image: "/projects/strata.png",
+    glowColor: "rgba(139, 92, 246, 0.2)",
+
+    year: "2026",
+    duration: t("strataDuration"),
+    role: t("strataRole"),
+    type: t("strataType"),
+    status: "development",
+
+    demoUrl: "",
+    frontendUrl: "",
+    backendUrl: "",
+
+    problem: t("strataProblem"),
+    solution: t("strataSolution"),
+
+    metrics: [
+      {
+        label: t("strataMetricsDocumentsLabel"),
+        value: "RAG",
+        description: t("strataMetricsDocumentsDescription")
+      },
+      {
+        label: t("strataMetricsSearchLabel"),
+        value: "pgvector",
+        description: t("strataMetricsSearchDescription")
+      },
+      {
+        label: t("strataMetricsArchitectureLabel"),
+        value: "AI",
+        description: t("strataMetricsArchitectureDescription")
+      },
+      {
+        label: t("strataMetricsStreamingLabel"),
+        value: "Realtime",
+        description: t("strataMetricsStreamingDescription")
+      },
+    ],
+
+    tags: [
+      "Next.js",
+      "FastAPI",
       "PostgreSQL",
-      "React",
-      "Docker",
-      "Redis"
+      "AI",
+      "RAG",
     ],
-    "image": "/projects/erp.png",
-    "glowColor": "rgba(79, 172, 254, 0.2)",
-    "demoUrl": "",
-    "frontendUrl": "",
-    "backendUrl": "",
-    "features": [
-      "Sistema POS para registro de ventas en tiempo real",
-      "Escaneo de códigos de barras para identificación rápida de productos",
-      "Control de inventario con historial completo de movimientos",
-      "Gestión de proveedores y generación de órdenes de compra",
-      "Historial de precios y seguimiento de variaciones",
-      "Control financiero de caja con auditoría de apertura y cierre",
-      "Análisis de ventas por día, semana y últimos 30 días",
-      "Registro de pérdidas, daños o productos expirados",
-      "Panel de reportes para análisis de desempeño del negocio",
-      "Arquitectura preparada para múltiples sucursales"
+
+    techStack: {
+      frontend: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "TanStack Query",
+        "Zustand",
+      ],
+
+      backend: [
+        "FastAPI",
+        "Python",
+        "JWT",
+        "AsyncIO",
+        "REST API",
+      ],
+
+      database: [
+        "PostgreSQL",
+        "pgvector",
+      ],
+
+      devops: [
+        "Docker",
+        "DigitalOcean",
+        "Vercel",
+      ],
+
+      other: [
+        "OpenAI API",
+        "LlamaIndex",
+        "Semantic Search",
+        "Embeddings",
+        "OCR",
+        "RAG",
+        "WebSockets",
+      ]
+    },
+
+    architecture: [
+      {
+        title: t("strataArchitectureRagTitle"),
+        description: t("strataArchitectureRagDescription"),
+      },
+      {
+        title: t("strataArchitectureEmbeddingsTitle"),
+        description: t("strataArchitectureEmbeddingsDescription"),
+      },
+      {
+        title: t("strataArchitectureServicesTitle"),
+        description: t("strataArchitectureServicesDescription"),
+      },
     ],
-    "challenges": [
-      "Diseñar un modelo de dominio capaz de manejar ventas, inventario, proveedores y finanzas de forma consistente",
-      "Mantener sincronización de inventario en tiempo real durante múltiples transacciones POS",
-      "Construir una arquitectura modular escalable para futuras funcionalidades",
-      "Optimizar consultas y reportes analíticos sobre grandes volúmenes de ventas"
+
+    features: [
+      {
+        title: t("strataFeatureDocumentsTitle"),
+        description: t("strataFeatureDocumentsDescription")
+      },
+      {
+        title: t("strataFeatureChatTitle"),
+        description: t("strataFeatureChatDescription")
+      },
+      {
+        title: t("strataFeatureSemanticTitle"),
+        description: t("strataFeatureSemanticDescription")
+      },
+      {
+        title: t("strataFeatureSummariesTitle"),
+        description: t("strataFeatureSummariesDescription")
+      },
+      {
+        title: t("strataFeatureNotesTitle"),
+        description: t("strataFeatureNotesDescription")
+      },
+      {
+        title: t("strataFeatureVisualizationTitle"),
+        description: t("strataFeatureVisualizationDescription")
+      },
     ],
-    "year": "2026",
-    "role": "Full Stack Developer"
+
+    challenges: [
+      {
+        title: t("strataChallengeRagTitle"),
+        problem: t("strataChallengeRagProblem"),
+        solution: t("strataChallengeRagSolution"),
+      },
+      {
+        title: t("strataChallengeStreamingTitle"),
+        problem: t("strataChallengeStreamingProblem"),
+        solution: t("strataChallengeStreamingSolution"),
+      },
+      {
+        title: t("strataChallengeDocumentsTitle"),
+        problem: t("strataChallengeDocumentsProblem"),
+        solution: t("strataChallengeDocumentsSolution"),
+      },
+    ],
+
+    results: [
+      t("strataResult1"),
+      t("strataResult2"),
+      t("strataResult3"),
+      t("strataResult4"),
+    ],
+
+    lessons: [
+      t("strataLesson1"),
+      t("strataLesson2"),
+      t("strataLesson3"),
+      t("strataLesson4"),
+    ],
   },
 ]
 
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find(p => p.slug === slug)
+export function getProjectBySlug(slug: string, t: any): Project | undefined {
+  return projects(t).find((p) => p.slug === slug)
+}
+
+export function getNextProject(slug: string, t: any): Project {
+  const projectList = projects(t)
+
+  const index = projectList.findIndex((p) => p.slug === slug)
+
+  return projectList[(index + 1) % projectList.length]
+}
+
+export function getPreviousProject(slug: string, t: any): Project {
+  const projectList = projects(t)
+
+  const index = projectList.findIndex((p) => p.slug === slug)
+
+  return projectList[(index - 1 + projectList.length) % projectList.length]
 }

@@ -1,12 +1,9 @@
-"use client"
-
 import { WidgetWrapper } from "@/components/widgets/WidgetWrapper"
 import { Github, GitFork, Star, ArrowUpRight } from "lucide-react"
 import { useGithub } from "@/hooks/useGithub";
 
 export function GithubWidget() {
     const github = useGithub("Gerardoprogramer");
-    console.log(github)
 
     return (
         <WidgetWrapper

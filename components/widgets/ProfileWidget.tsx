@@ -1,10 +1,11 @@
-"use client"
 import Image from "next/image"
 import { WidgetWrapper } from "@/components/widgets/WidgetWrapper"
 import { useGithub } from "@/hooks/useGithub"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export function ProfileWidget() {
     const github = useGithub("Gerardoprogramer")
+    const t = useTranslation()
 
     return (
         <WidgetWrapper className="h-full">
@@ -39,11 +40,20 @@ export function ProfileWidget() {
                         Gerardo Martinez
                     </h1>
                     <p className="text-primary font-mono text-xs md:text-sm mb-2 md:mb-4">
-                        Full Stack Developer
+                        {t("role")}
                     </p>
                     <p className="text-muted-foreground leading-relaxed text-xs md:text-sm hidden md:block">
-                        Construyo experiencias digitales que combinan diseño excepcional con código limpio.
+                        {t("profileDescription")}
                     </p>
+                </div>
+
+                <div className="flex gap-2 mt-4 md:mt-6">
+                    <span className="px-2 md:px-3 py-1 text-[10px] md:text-xs rounded-full bg-primary/10 text-primary border border-primary/20">
+                        {t("available")  }
+                    </span>
+                    <span className="px-2 md:px-3 py-1 text-[10px] md:text-xs rounded-full bg-secondary text-muted-foreground">
+                        {t("remote")  }
+                    </span>
                 </div>
             </div>
         </WidgetWrapper>

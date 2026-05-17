@@ -1,5 +1,3 @@
-"use client"
-
 import { WidgetWrapper } from "@/components/widgets/WidgetWrapper"
 import {technologies} from "@/lib/technologie"
 

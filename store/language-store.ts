@@ -14,6 +14,7 @@ export const useLanguageStore = create<LanguageStore>()(
       language: "es",
 
       setLanguage: (language) => {
+        document.cookie = `language=${language}; path=/; max-age=31536000`
         set({ language })
       },
     }),
