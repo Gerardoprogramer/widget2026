@@ -383,8 +383,8 @@ export const projects = (t: any): Project[] => [
     status: "development",
 
     demoUrl: "",
-    frontendUrl: "",
-    backendUrl: "",
+    frontendUrl: "https://github.com/Gerardoprogramer/strata-web",
+    backendUrl: "https://github.com/Gerardoprogramer/strata-api",
 
     problem: t("strataProblem"),
     solution: t("strataSolution"),
